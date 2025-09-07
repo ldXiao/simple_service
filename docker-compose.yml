@@ -7,6 +7,9 @@ services:
       - "8000:8000"
     environment:
       - PYTHONPATH=/app
+      - OIDC_ISSUER=http://localhost:8080/realms/dev
+      - OIDC_AUDIENCE=spa
+      - OIDC_JWKS_URL=http://keycloak:8080/realms/dev/protocol/openid-connect/certs
     volumes:
       - ./backend:/app
     depends_on:

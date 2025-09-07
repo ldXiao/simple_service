@@ -4,14 +4,19 @@ import './index.css'
 import App from './App.tsx'
 import Login from './Login'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import { OIDCProvider } from './auth'
+import OidcCallback from './OidcCallback'
 
 const router = createBrowserRouter([
   { path: '/', element: <App /> },
   { path: '/login', element: <Login /> },
+  { path: '/oidc/callback', element: <OidcCallback /> },
 ])
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <OIDCProvider>
+      <RouterProvider router={router} />
+    </OIDCProvider>
   </StrictMode>,
 )
