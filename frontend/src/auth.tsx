@@ -11,6 +11,7 @@ export function OIDCProvider({ children }: { children: React.ReactNode }) {
       scope={import.meta.env.VITE_OIDC_SCOPE ?? 'openid profile email'}
       automaticSilentRenew
       onSigninCallback={() => {
+        // remove query/hash without reloading
         window.history.replaceState({}, document.title, window.location.pathname);
       }}
     >
