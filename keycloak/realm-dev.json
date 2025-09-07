@@ -1,0 +1,51 @@
+{
+  "id": "dev",
+  "realm": "dev",
+  "enabled": true,
+  "displayName": "Dev",
+  "registrationAllowed": false,
+  "loginWithEmailAllowed": true,
+  "resetPasswordAllowed": true,
+  "users": [
+    {
+      "username": "testuser",
+      "enabled": true,
+      "emailVerified": true,
+      "email": "testuser@example.com",
+      "firstName": "Test",
+      "lastName": "User",
+      "credentials": [
+        {
+          "type": "password",
+          "value": "password",
+          "temporary": false
+        }
+      ]
+    }
+  ],
+  "clients": [
+    {
+      "clientId": "spa",
+      "name": "SPA",
+      "protocol": "openid-connect",
+      "publicClient": true,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": false,
+      "serviceAccountsEnabled": false,
+      "frontchannelLogout": true,
+      "attributes": {
+        "post.logout.redirect.uris": "http://localhost:5173/*",
+        "pkce.code.challenge.method": "S256"
+      },
+      "rootUrl": "http://localhost:5173",
+      "baseUrl": "/",
+      "redirectUris": [
+        "http://localhost:5173/oidc/callback"
+      ],
+      "webOrigins": [
+        "http://localhost:5173"
+      ]
+    }
+  ]
+}
